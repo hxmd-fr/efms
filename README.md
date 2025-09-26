@@ -48,7 +48,7 @@ A database management tool like MySQL Workbench
 
 1. Clone the Repository <br>
 ```
-git clone [https://github.com/hxmd-fr/efms.git](https://github.com/hxmd-fr/efms.git) <br>
+git clone [https://github.com/hxmd-fr/efms.git](https://github.com/hxmd-fr/efms.git) 
 cd efms-project
 ```
 
