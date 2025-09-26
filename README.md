@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Enterprise Finance Management System (EFMS)
+An advanced, data-driven financial management dashboard built with Next.js, Tailwind CSS, and MySQL. EFMS provides real-time insights into key business metrics, leveraging a secure backend API to connect directly to your financial database. This project is designed to be a comprehensive solution for managing employees, transactions, budgets, and leveraging AI for predictive analysis and fraud detection.
 
-## Getting Started
+✨ Key Features
+Dynamic Real-time Dashboard: Displays live, up-to-the-second data on total employees, monthly expenses, and budget utilization fetched directly from the database.
 
-First, run the development server:
+Secure Backend API: A robust Next.js API route handles all database communication, ensuring that sensitive credentials are never exposed to the client-side.
 
-```bash
+Tab-Based Interface: A clean and modern UI with tabbed navigation to seamlessly switch between the main Dashboard, AI Prediction, and Fraud Detection modules.
+
+Component-Based Architecture: Built with reusable React components for statistics cards, navigation, and UI elements, ensuring clean and maintainable code.
+
+Robust Data Fetching: Includes elegant loading and error states to provide a smooth user experience, even if the database connection is slow or fails.
+
+Custom SQL Schema: Powered by a detailed MySQL schema featuring tables for users, employees, transactions, payroll, and budgeting.
+
+🛠️ Technology Stack
+Frontend: Next.js (React Framework) & Tailwind CSS
+
+Backend: Next.js API Routes (Node.js)
+
+Database: MySQL
+
+Data Fetching: mysql2 library
+
+Icons: Lucide React
+
+🗂️ Database Schema Overview
+The system is built on a relational MySQL database designed to handle core financial and employee data.
+
+Users & Employees: Manage user accounts and their corresponding employee profiles, including roles and join dates.
+
+Accounts & Transactions: Form the core of the financial ledger, tracking all debits and credits against different account types (Asset, Expense, etc.).
+
+Payroll & Budget: Handle employee compensation and track departmental budget allocation versus actual spending.
+
+Invoices & Vendors: Manage payables and vendor relationships.
+
+v_monthly_expense (View): A pre-calculated SQL view for efficiently querying total expenses per month.
+
+🚀 Getting Started
+Follow these instructions to set up and run the project on your local machine.
+
+Prerequisites
+Node.js (v18.0 or later recommended)
+
+[suspicious link removed] running on your local machine or a cloud service.
+
+A database management tool like MySQL Workbench or DBeaver.
+
+1. Clone the Repository
+git clone [https://github.com/hxmd-fr/efms-project.git](https://github.com/hxmd-fr/efms-project.git)
+cd efms-project
+
+2. Install Dependencies
+Install the required npm packages.
+
+npm install
+
+3. Set Up the Database
+Connect to your MySQL server.
+
+Create a new database. The project expects the name financedb by default.
+
+CREATE DATABASE financedb;
+
+Execute the full SQL schema script to create all the tables, views, and insert the sample data.
+
+4. Configure Environment Variables
+Create a new file named .env.local in the root of your project.
+
+Copy the contents of .env.example (or the template below) into it.
+
+Fill in your actual MySQL database credentials.
+
+.env.local template:
+
+# .env.local
+DB_HOST=127.0.0.1
+DB_USER=root
+DB_PASSWORD=your_mysql_password
+DB_NAME=financedb
+
+5. Run the Development Server
+Start the Next.js application.
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 in your browser to see the application running. Navigate to /dashboard to view the main dashboard.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+📡 API Endpoints
+The backend is handled by a single API route for now:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+GET /api/dashboard-stats
 
-## Learn More
+Description: Securely connects to the MySQL database to fetch, calculate, and return key metrics for the main dashboard.
 
-To learn more about Next.js, take a look at the following resources:
+Returns: A JSON object with the following structure:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+{
+  "totalEmployees": 120,
+  "employeeChange": 2,
+  "monthlyExpenses": "45200.00",
+  "expenseChangePercentage": "-5.1",
+  "budgetUtilization": "82"
+}
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+📈 Future Roadmap
+Full CRUD Functionality: Implement Create, Read, Update, and Delete operations for transactions, employees, and budgets.
 
-## Deploy on Vercel
+User Authentication & Roles: Add a proper login system and enforce role-based access control (RBAC) on the frontend and in the API.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+AI Expense Prediction: Develop the "AI Prediction" tab to visualize historical data and forecast future expenses using statistical models.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Fraud Detection Interface: Build out the UI for the "Fraud Detection" tab to display and manage alerts generated by the anomaly detection SQL query.
