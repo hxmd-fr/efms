@@ -25,7 +25,7 @@ Data Fetching: mysql2 library
 
 Icons: Lucide React
 
-🗂️ Database Schema Overview
+🗂️ Database Schema Overview <br>
 The system is built on a relational MySQL database designed to handle core financial and employee data.
 
 Users & Employees: Manage user accounts and their corresponding employee profiles, including roles and join dates.
