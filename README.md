@@ -44,20 +44,18 @@ Follow these instructions to set up and run the project on your local machine.
 Prerequisites
 Node.js (v18.0 or later recommended)
 
-[suspicious link removed] running on your local machine or a cloud service.
+A database management tool like MySQL Workbench 
 
-A database management tool like MySQL Workbench or DBeaver.
-
-1. Clone the Repository
-git clone [https://github.com/hxmd-fr/efms-project.git](https://github.com/hxmd-fr/efms-project.git)
+1. Clone the Repository <br>
+git clone [https://github.com/hxmd-fr/efms.git](https://github.com/hxmd-fr/efms.git) <br>
 cd efms-project
 
-2. Install Dependencies
-Install the required npm packages.
+2. Install Dependencies <br>
+Install the required npm packages. <br>
 
-npm install
+```npm install```
 
-3. Set Up the Database
+3. Set Up the Database <br>
 Connect to your MySQL server.
 
 Create a new database. The project expects the name financedb by default.
@@ -75,16 +73,17 @@ Fill in your actual MySQL database credentials.
 
 .env.local template:
 
+```
 # .env.local
 DB_HOST=127.0.0.1
 DB_USER=root
 DB_PASSWORD=your_mysql_password
 DB_NAME=financedb
-
+```
 5. Run the Development Server
 Start the Next.js application.
 
-npm run dev
+```npm run dev```
 
 Open http://localhost:3000 in your browser to see the application running. Navigate to /dashboard to view the main dashboard.
 
