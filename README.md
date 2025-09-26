@@ -32,7 +32,7 @@ Users & Employees: Manage user accounts and their corresponding employee profile
 
 Accounts & Transactions: Form the core of the financial ledger, tracking all debits and credits against different account types (Asset, Expense, etc.).
 
-Payroll & Budget: Handle employee compensation and track departmental budget allocation versus actual spending.
+Budget: Track departmental budget allocation versus actual spending.
 
 Invoices & Vendors: Manage payables and vendor relationships.
 
@@ -47,8 +47,10 @@ Node.js (v18.0 or later recommended)
 A database management tool like MySQL Workbench 
 
 1. Clone the Repository <br>
+```
 git clone [https://github.com/hxmd-fr/efms.git](https://github.com/hxmd-fr/efms.git) <br>
 cd efms-project
+```
 
 2. Install Dependencies <br>
 Install the required npm packages. <br>
@@ -65,9 +67,7 @@ CREATE DATABASE financedb;
 Execute the full SQL schema script to create all the tables, views, and insert the sample data.
 
 4. Configure Environment Variables <br>
-Create a new file named .env.local in the root of your project.
-
-Copy the contents of .env.example (or the template below) into it.
+Create a new file named ```.env.local``` in the root of your project.
 
 Fill in your actual MySQL database credentials.
 
